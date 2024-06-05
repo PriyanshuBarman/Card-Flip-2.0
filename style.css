@@ -350,7 +350,7 @@
         width: 23%;
         right: 6.2%;
         transition: transform 1s;
-        fill: rgb(221, 220, 190);
+        fill: white;
     }
 
     .checkbox:checked + .toogle .moon{
@@ -398,20 +398,17 @@
             transform: scale(1,1);
         }
     }
+
     .clr-btn:active{
         height: 46px;
         width: 146px;
     }
+
     .change-logo{
         fill: #ff4545;
         transition: transform .7s ease-out .2s;
         width: 40%;
         height: 100%;
-    }
-    
-    .clr-btn:hover{
-        box-shadow: .2px 1px 10px aquamarine;
-        border: 1px solid aqua
     }
 
     .clr-btn:hover .change-logo{
