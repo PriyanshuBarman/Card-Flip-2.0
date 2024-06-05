@@ -155,7 +155,7 @@ clr_btn.addEventListener("click", ()=>{
             setTimeout(() => {
                 clr_inst.style.visibility = "hidden";
                 clr_arrow.style.visibility = "hidden";
-            }, 3*1000);
+            }, 5*1000);
         }
         
    });
