@@ -1,0 +1,875 @@
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    html,body{
+        height: 100%;
+        width: 100%;
+        background-color: black;
+    }
+
+    .main{
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        font-family: "Play", sans-serif;
+        opacity: 0;
+        animation: fade 2s ease 2s forwards;
+    }
+
+    @keyframes fade{
+        from{
+            opacity: 0;
+        }
+        to{
+            opacity: 1;
+        }
+    }
+
+    .intro{
+        position: absolute;
+        width: 500px;
+        top: 45%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        opacity: 0;
+        animation: fade 2s ease-out 1;
+        overflow: hidden;
+    }
+    
+
+    /* ======================= BACKGROUND =========================== */
+
+    .left-background{
+        position: absolute;
+        left: 0;
+        height: 100%;
+        width: 70%;
+        background-image: linear-gradient(to right,grey,white);
+    }
+    .right-background{
+        position: absolute;
+        right: 0;
+        height: 100%;
+        width: 54.9%;
+        overflow: hidden;
+    }
+
+    /*  ======================= STRIP ==========================*/
+
+    .top-strip,.bottom-strip{
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        background-image: linear-gradient(to bottom, #ff6767, #dd4646);
+        box-shadow: 0 0 10px 0px rgba(0,0,0,0.5);
+    }
+    .top-strip{
+        transform: skewX(19.3deg) translateX(168px);
+    }
+    .bottom-strip{
+        transform: skewX(-15deg) translateX(168px);
+    }
+
+
+
+    /*  ====================== CARD ==========================  */
+
+    .card-container{
+        height: 310px;
+        width: 500px;
+        perspective: 1000px;   
+
+    }
+    .card {
+        height: 100%;
+        width: 100%;
+        position: relative;
+        transform-style: preserve-3d;
+        transition: transform 2.3s ease;
+        cursor: pointer;
+    }
+    
+    .front, .back {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        backface-visibility: hidden;
+        color: #3a3a3a;
+        border-radius: 20px;
+        border: .8px solid rgb(210, 201, 201);
+        box-shadow: 0 1px 10px 1px rgba(0,0,0,0.3);
+        overflow: hidden;
+    }
+    .front {
+        background-image: linear-gradient(to right,#949494,white);
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        padding-left: 6%;
+        font-size: 16px;
+    }
+    .back {
+        transform: rotateY(180deg);
+        background-image: linear-gradient(to right,#d8d7d7,#C6C8C6);
+    }
+
+
+    /* ======================== FRONT ===========================*/
+
+    .card-top-strip,.card-bottom-strip{
+        position: absolute;
+        background-image: linear-gradient(to bottom, #ff6767, #ff4545);
+        box-shadow: 0 0 10px 0px rgba(0,0,0,0.5);
+    }
+
+    .card-top-strip{
+        transform: skewX(19deg) translateX(312px);
+        height: 100%;
+        width: 43%;
+    }
+
+    .card-bottom-strip{
+        transform: skewX(-15deg) translateX(312px);
+        height: 100%;
+        width: 20%;
+    }
+
+    .title{
+        font-size: 1em;
+        top: 10%;
+        left: 5%;
+        text-transform: uppercase;
+    }
+
+    .bank-logo{
+        position: absolute;
+        top: 0%;
+        right: 0%;
+        width:35%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        object-fit: cover;
+        mix-blend-mode: multiply;
+        transform: translateY(-25%);
+    }
+
+    .chip {
+        height: 15%;
+        width: 15%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .chip-img {
+        width: 100%;
+        object-fit: cover;
+    }
+
+    .wifi-logo {
+        position: absolute;
+        top:26%;
+        left: 22%;
+        width: 6%;
+        object-fit: cover;
+    }
+
+    .number {
+        position: relative;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        font-size: 1.8em;
+        letter-spacing: 2px;
+        width: 90%;
+    }
+
+    .name{
+        position: relative;
+    }
+
+    .expiry .data, .name .data {
+        font-size: 1.4em;
+    }
+
+    .flip {
+        font-size: 0.8em;
+    }
+
+    .visa{
+        position: absolute;
+        width: 30%;
+        object-fit: cover;
+        bottom: 0px;
+        right: 0px;
+    }
+
+
+    /*  ======================= BACK ===========================*/
+
+    .back{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+
+    .back .magnetic-strip {
+        height: 15%;
+        width: 100%;
+        margin-top: 4%;
+        background-color: black;
+    }
+
+    .cvv {
+        width: 80%;
+        height: 15%;
+        border-radius: 5px;
+        background-color: #606470;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        
+    }
+
+    .cvv .cvv-no{
+        background-color: white;
+        color: black;
+        font-size: 1.5em;
+        height: 70%;
+        width: auto;
+        border-radius: 2px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .back span {
+        padding-left: 6%;
+        padding-right: 3%;
+        margin-bottom: 7%;
+        font-size: 0.9em;
+    }
+
+    .back .love{
+        position: absolute;
+        top: 4%;
+        right: 1%;
+        font-size: 0.7em;
+    }
+
+    .visa-back {
+        position: absolute;
+        width: 30%;
+        object-fit: cover;
+        bottom: 0px;
+        right: 0px;
+    }
+
+
+    /*   ========================== TOOGLE SWITCH =============================*/
+
+    .checkbox{
+        display: none;
+    }
+
+    @keyframes left-right{
+        from{
+          transform: translateX(-150%);
+      }
+      to{
+          transform: translateX(0%);
+      }
+    }
+
+    .toogle{
+        transform: translateX(-150%);
+        position: absolute;
+        left: 1.3%;
+        top: 4%;
+        height: 50px;
+        width: 135px;
+        border-radius:24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        font-size: 14px;
+        color: black;
+        font-style: italic;
+        background-color: rgb(187, 183, 183);
+        border: 3.5px solid rgb(59, 59, 59);
+        animation: left-right .2s ease 3s forwards;
+    }
+
+    .slider{
+        content: '';
+        height: 93.5%;
+        width: 33%;
+        background: linear-gradient(180deg, #777, #3a3a3a);
+        border-radius: 50%;
+        position: absolute;
+        left: 2%;
+        transition: all 0.25s ease;
+    }
+
+    .checkbox:checked + .toogle .slider{
+        left: 97.5%;
+        transform: translateX(-100%);
+        background: rgb(214, 210, 209);
+        height: 90%;
+
+    }
+
+    .checkbox:checked + .toogle{
+        background-color: rgb(0, 0, 0);
+        box-shadow:  inset 1px -3px 5px rgba(218, 216, 216, 0.944);
+        border: 0px;
+        border-top: 0.1px solid gray;
+    }
+
+    .moon, .sun{
+        position: absolute;
+        z-index: 100;
+    }
+
+    .sun{
+        width: 25%;
+        left: 5.8%;
+        transition: transform 0.70s ;
+    }
+
+    .moon{
+        width: 23%;
+        right: 6.2%;
+        transition: transform 1s;
+        fill: rgb(221, 220, 190);
+    }
+
+    .checkbox:checked + .toogle .moon{
+        transform: rotate(360deg);
+    }
+
+    .checkbox:checked + .toogle .sun{
+        transform: rotate(-360deg);
+        fill: white;
+    }
+    .toogle:hover .sun{
+        fill: white;
+    }
+
+
+    /*   ========================== CLR BUTTON =============================*/
+
+    .clr-btn{
+        height: 50px;
+        width: 150px;
+        transform: scale(0,0);
+        border-radius: 12px;
+        position: absolute;
+        top: 18%;
+        right: 1.5%;
+        padding: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        font-size: 1em;
+        font-family: "Play", sans-serif;
+        font-weight: bold;
+        font-style: italic;
+        background-color: black;
+        color: rgb(227, 227, 227);
+        animation: clr-btn .5s ease 3.5s forwards;
+    }
+
+    @keyframes clr-btn{
+        from{
+        transform: scale(0,0);
+        }
+
+        to{
+            transform: scale(1,1);
+        }
+    }
+    .clr-btn:active{
+        height: 46px;
+        width: 146px;
+    }
+    .change-logo{
+        fill: #ff4545;
+        transition: transform .7s ease-out .2s;
+        width: 40%;
+        height: 100%;
+    }
+    
+    .clr-btn:hover{
+        box-shadow: .2px 1px 10px aquamarine;
+        border: 1px solid aqua
+    }
+
+    .clr-btn:hover .change-logo{
+        animation: rotate 1.8s ease 1;
+    }
+    
+    .change-logo.rotate{
+        animation: rotate 1.7s ease .5s 1;
+    }
+
+    @keyframes rotate{
+        from{
+            transform: rotate(0deg);
+        }
+        to{
+            transform: rotate(360deg);
+        }
+    }
+    
+
+
+    /*   ========================== FLIP INST =============================*/
+
+
+    .flip-inst{
+        transform: translateY(-400%);
+        position: absolute;
+        top: 5%;
+        left: 41%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 40px;
+        font-size: 2.5em;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-weight: bold;
+        font-style: italic; 
+        opacity: 0;
+        animation: up-down 0.8s ease-in-out 4.3s forwards;
+    }
+
+    @keyframes up-down{
+        from{
+            transform: translateY(-400%);
+            opacity: 0;
+        }
+        50%{
+            transform: translateY(0%);
+            opacity: .5;
+        }
+        75%{
+            transform: translateY(-20%);
+            opacity: .7;
+        }
+        to{
+            transform: translateY(0%);
+            opacity: 1;
+        }
+    }
+
+    .left{
+        color: tomato;
+    }
+
+    .right{
+        color: black;
+    }
+    
+    .flip-arrow{
+        position: absolute;
+        width: 4.8vh;
+        top: 14%;
+        left: 42.5%;
+        opacity: 0;
+        animation: flip-arrow .6s linear 5.3s infinite alternate forwards;
+    }
+
+    @keyframes flip-arrow{
+        from{
+            top: 14%;
+            opacity: 1;
+        }
+        to{
+            top: 18%;
+            opacity: 1;
+        }
+    }
+
+    .flip-inst2{
+        visibility: hidden;
+        position: absolute;
+        top: 5%;
+        left: 41%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 40px;
+        font-size: 2.5em;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-weight: bold;
+        font-style: italic;
+    }
+
+    .flip-inst2 .right{
+        animation: entry 1.7s ease 8s infinite;
+    }
+
+    @keyframes entry{
+        from{
+            opacity: 0;
+        }
+        50%{
+            opacity: 1;
+        }
+        to{
+            opacity: 0;
+        }
+    }
+    
+    
+
+
+    /*   ========================== THEME CHANGE INST =============================*/
+    
+
+    .theme-inst{
+        position: absolute;
+        top: 27%;
+        left: 5.3%;
+        color: white;
+        font-size: 1.8em;
+        font-style: italic;
+        font-weight: bold;
+        visibility: hidden;
+    }
+
+    .theme-arrow{
+        fill: #dd4646;
+        position: absolute;
+        left: 6%;
+        width: 4vh;
+        animation: theme-arrow .6s linear infinite alternate ;
+        visibility: hidden;
+    }
+
+    @keyframes theme-arrow{
+        from{
+            top:14%;
+        }
+        to{
+            top: 10%;
+        }
+    }
+
+
+    /*   ========================== COLOUR CHANGE INST =============================*/
+    
+    .clr-inst{
+        position: absolute;
+        top: 43%;
+        right: 5.5%;
+        color: white;
+        font-size: 1.8em;
+        font-style: italic;
+        font-weight: bold;
+        visibility: hidden;
+    }
+
+    .clr-arrow{
+        fill: rgb(22, 255, 189);
+        position: absolute;
+        right: 7%;
+        top: 30%;
+        width: 4vh;
+        animation: clr-arrow .7s linear infinite alternate ;
+        visibility: hidden;
+    }
+
+    @keyframes clr-arrow{
+        from{
+            top: 31%;
+        }
+        to{
+            top: 27%;
+        }
+    }
+  
+
+    /*   ========================== REFLECT EFFECT =============================*/
+
+
+    .front .reflect, .back .reflect{
+        content: '';
+        background-color:rgba(243, 242, 242, 0.3);
+        width: 20%;
+        height: 250%;
+        position: absolute;
+        top: -150%;
+        filter: blur(15px);
+        z-index: 1;
+    }
+    .front .reflect{
+        transform: rotate(30deg) translate(-200%);
+        transition: transform .8s ease 2.3s;
+    }
+    .back .reflect{
+        transform: rotate(30deg) translate(600%);
+        transition: transform 1.4s ease 2.3s;
+    }
+
+
+    /*   ========================== REFLECT 2 =============================*/
+
+
+    .front .reflect2, .back .reflect2{
+        content: '';
+        background-color:rgba(255, 255, 255, 0.2);
+        width: 20%;
+        height: 250%;
+        position: absolute;
+        top: -150%;
+        filter: blur(15px);
+        z-index: 1;
+        animation: reflect 1.3s ease 6.2s;
+    }
+
+    @keyframes reflect{
+        from{
+            transform: rotate(45deg) translate(-200%);
+        }
+        to{
+            transform : rotate(45deg) translate(700%);
+
+        }
+    }
+
+    .front .reflect2{
+        transform: rotate(45deg) translate(-200%);
+        transition: transform 1s ease .3s;
+    }
+
+    .back .reflect2{
+        transform: rotate(45deg) translate(600%);
+        transition: transform .9s ease 2s;
+    }
+
+
+
+
+/*   ================================= MEDIA QUEARIES==========================================*/
+
+/*   ================================= MEDIA QUEARIES==========================================*/
+
+@media (max-width:499px){
+
+    .intro{
+        width: 200px;
+    }
+
+    .main{
+        font-size: 6px;
+    }
+
+    .right-background{
+        width: 85.1%;
+    }
+    .left-background{
+        width: 70%;
+    }
+    
+    .card-container {
+        height: 180px;
+        width: 280px;
+    }
+
+    .front,.back{
+        border-radius: 10px;
+        font-size: 8px;
+        border: .8px solid white;
+    }
+
+    .back span{
+        margin-bottom: 9%;
+    }
+    
+
+    /* STRIP DESIGN   @media ____________________________________________ */
+
+    .top-strip{
+        transform: skewX(15deg)translateX(175px);
+    }
+
+    .bottom-strip{
+        transform: skewX(-15deg) translateX(170px);
+    }
+
+
+    /* CARD STRIPS DESIGN  @media ____________________________________________ */
+    
+
+    .card-top-strip{
+        transform: skewX(15deg) translateX(171px);
+    }
+
+    .card-bottom-strip{
+        transform: skewX(-15deg) translateX(166px);
+    }
+    
+    
+    /* TOOGLE DESIGN  @media  ____________________________________________*/
+    .toogle{
+        height: 35px;
+        width: 90px;
+        top: 5%;
+        border: 2.3px solid rgb(32, 32, 32);
+    }
+
+    .theme{
+        font-size: .6em;
+        font-family: "Play", sans-serif;
+        font-weight: bold;
+    }
+
+    .checkbox:checked + .toogle .slider{
+        left: 97%;
+        height: 87%;
+    }
+
+    .moon{
+        right: 7%;
+    }
+
+  
+
+    /* COLOUR BUTTON DESIGN  @media   ____________________________________________*/
+
+    .clr-btn{
+        height: 35px;
+        width: 93px;
+        font-size: 1.6em;
+        top: 22%;
+        right: 10px;
+    }
+
+    .clr-btn:active{
+        height: 32px;
+        width: 90px;
+    }
+
+    .change-logo{
+        width: 25px;
+        justify-content: space-evenly;
+        gap: 10px;
+        transition: transform .6s ease-out .2s;
+    }
+
+
+    /* FLIP INSTRUCTIONS  DESIGN   @media ____________________________________________ */
+
+
+    .flip-inst{
+        font-size: 2.6em;
+        left: 8%;
+        top: 25%;
+        font-style: italic;
+        gap: 5px;
+    }
+
+    .left, .right{
+        color: black;
+        font-family: "Play", sans-serif;
+    }
+
+    .flip-inst2{
+        font-size: 2.6em;
+        left: 10%;
+        top: 26%;
+        gap: 7px;
+    }
+
+    .flip-arrow{
+        top: 29%;
+        left: 33%;
+        height: 2.7vh;
+        animation-duration: 0.6s;
+    }
+
+    @keyframes flip-arrow{
+        from{
+            top: 29%;
+            opacity: 1;
+        }
+        to{
+            top: 31%;
+            opacity: 1;
+        }
+    }
+
+    
+
+    /* COLOR CHANGE INSTRUCTION   @media ____________________________________________*/
+
+
+
+    .clr-arrow{
+        transform: rotate(180deg);
+        width: 2.2vh;
+        top: 10%;
+        right: 20%;
+        animation-duration: 0.6s;
+        /* visibility: hidden; */
+    }
+
+    @keyframes clr-arrow{
+        from{
+            top: 9.5%;
+        }
+        to{
+            top: 11.5%;
+        }
+    }
+
+    .clr-inst{
+        top: 12%;
+        right: 18%;
+        font-size: 2.6em;
+        visibility: hidden;
+    }
+
+    
+    /* THEME INSTRUCTION  @media ____________________________________________*/
+    .theme-arrow{
+        width: 2.2vh;
+        left: 17%;
+        animation-duration: 0.6s;
+    }
+
+    @keyframes theme-arrow{
+        from{
+            top: 10%;
+        }
+        to{
+            top: 7%;
+        }
+    }
+
+    .theme-inst{
+        top: 21%;
+        left: 14%;
+        font-size: 2.6em;
+        color: black;
+    }
+    
+}
+      
+    
+    
+    
+
+
+    
